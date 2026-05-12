@@ -29,10 +29,18 @@ public class ArrayListBasics {
         JOptionPane.showMessageDialog(null, "La AL es: \n" + a1);
         //verificar la longitud de la AL 
         JOptionPane.showMessageDialog(null, "La longitd de la Al es \n:"+a1.size());
+        //verificar la existencia del AL 
+        JOptionPane.showMessageDialog(null, "LA AL contiene al elemento?\n"+a1.contains("HTML"));
+        a1.add(2,"PROLOG");
+        JOptionPane.showMessageDialog(null, a1);
+        
+        //recorrido de la AL con Iterator
+        Iterator<String> itr = a1.iterator();
+        while (itr.hasNext()){
+            JOptionPane.showMessageDialog(null, itr.next());
+        }
         
         
     }
     
 }
-
-//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
