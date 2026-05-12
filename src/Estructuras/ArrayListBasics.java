@@ -27,6 +27,8 @@ public class ArrayListBasics {
         a1.add("HTML");
         
         JOptionPane.showMessageDialog(null, "La AL es: \n" + a1);
+        //verificar la longitud de la AL 
+        JOptionPane.showMessageDialog(null, "La longitd de la Al es \n:"+a1.size());
         
         
     }
