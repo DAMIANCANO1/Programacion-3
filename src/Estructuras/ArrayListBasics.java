@@ -40,6 +40,9 @@ public class ArrayListBasics {
             JOptionPane.showMessageDialog(null, itr.next());
         }
         
+        //clonar AL
+        ArrayList<String> copia = (ArrayList<String>) a1.clone();
+        JOptionPane.showMessageDialog(null, copia);
         
     }
     
