@@ -32,18 +32,17 @@ public class Automovil {
         tiempo = 0.0;
 
     }
+    
     //3. definir el metodo contructor parametrizado del objeto
     //este metodo permimte crear un objetp en una aplicacion con
     //valores definidos 
-
-    public Automovil(String marca, String color, int modelo, String tipo, double velocidad, double distancia, double tiempo) {
+    public Automovil(String marca, String color, int modelo, String tipo, double velocidad, double distancia) {
         this.marca = marca;
         this.color = color;
         this.modelo = modelo;
         this.tipo = tipo;
         this.velocidad = velocidad;
         this.distancia = distancia;
-        this.tiempo = tiempo;
     }
 
     //definir los metodos mutadores y accesores a cada variable 
@@ -112,8 +111,8 @@ public class Automovil {
     //6 definir un metodo de visualizacion de la informacion del objeto
     
     public String toString (){
-        return "EL AUTO DE LA MARCA "+marca+" MODELO "+modelo+" , tipo "+tipo+" y de color "
-                +color+" tiene una velocidad promedio de "+velocidad+
-                " y le lleva "+tiempo+" horas ir de A a B ";
+        return "\nEL AUTO DE LA MARCA "+marca+" \nMODELO "+modelo+" , \ntipo "+tipo+" y de color "
+                +color+" \ntiene una velocidad promedio de "+velocidad+"kms/h"+
+                " \ny le lleva "+tiempo+" horas ir de A a B ";
     }
 }

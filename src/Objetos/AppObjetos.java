@@ -36,6 +36,7 @@ public class AppObjetos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         menuObjetos = new javax.swing.JComboBox<>();
         btnModelarObjeto = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,35 +50,40 @@ public class AppObjetos extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Elephant", 0, 24)); // NOI18N
         jLabel3.setText("Selecciona el objeto a modelar");
 
-        menuObjetos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Automovil", " " }));
+        menuObjetos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Automovil", "Avion", "Barco", "Tren" }));
         menuObjetos.addActionListener(this::menuObjetosActionPerformed);
 
         btnModelarObjeto.setText("click");
         btnModelarObjeto.addActionListener(this::btnModelarObjetoActionPerformed);
 
+        btnSalir.setText("SALIR");
+        btnSalir.addActionListener(this::btnSalirActionPerformed);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(214, 214, 214)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(menuObjetos, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(181, 181, 181))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnModelarObjeto)
-                        .addGap(205, 205, 205))))
+                .addComponent(menuObjetos, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(181, 181, 181))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 76, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel1))
                 .addGap(61, 61, 61))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(214, 214, 214)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(btnModelarObjeto)
+                        .addGap(57, 57, 57)
+                        .addComponent(btnSalir)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,9 +96,11 @@ public class AppObjetos extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(menuObjetos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(btnModelarObjeto)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnModelarObjeto)
+                    .addComponent(btnSalir))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -120,17 +128,41 @@ public class AppObjetos extends javax.swing.JFrame {
         String op = menuObjetos.getSelectedItem().toString();
         
         switch (op){
-            case "Automovil":
+            case "Automovil" -> {
                 FormularioAutomovil fA = new FormularioAutomovil();
                 fA.setVisible(true);
                 this.dispose();
-                break;
-            default:
-                JOptionPane.showMessageDialog(null, "OPCION NO VALIDA","ERROR",JOptionPane.ERROR_MESSAGE);
-                break;
+            }
+            case "Avion" -> {
+                FormularioAvion fAv = new FormularioAvion();
+                fAv.setVisible(true);
+                this.dispose();
+            }
+            case "Barco" -> {
+                FormularioBarco fb = new FormularioBarco();
+                fb.setVisible(true);
+                this.dispose();
+            }
+
+            case "Tren" -> {
+                FormularioTren fT = new FormularioTren();
+                fT.setVisible(true);
+                this.dispose();
+
+            }
+
+            default ->
+                JOptionPane.showMessageDialog(null, "OPCION NO VALIDA", "ERROR", JOptionPane.ERROR_MESSAGE);
+
         }
+
     }//GEN-LAST:event_btnModelarObjetoActionPerformed
 
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    //modelar avion, barco, tren
     /**
      * @param args the command line arguments
      */
@@ -158,6 +190,7 @@ public class AppObjetos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnModelarObjeto;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -8,23 +8,23 @@ package Objetos;
  *
  * @author canod
  */
-public class miAutomovil extends javax.swing.JFrame {
+public class miAvion extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(miAutomovil.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(miAvion.class.getName());
 
     /**
      * Creates new form miAutomovil
      */
     private String info; 
     
-    public miAutomovil() {
+    public miAvion() {
         initComponents();
         
     }
     
     public void setInfo(String info) {
         this.info = info;
-        areaInfoAuto.setText(info);
+        areaInfoAvion.setText(info);
     }
 
     /**
@@ -37,20 +37,17 @@ public class miAutomovil extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        areaInfoAuto = new javax.swing.JTextArea();
+        areaInfoAvion = new javax.swing.JTextArea();
         btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/auto.jpeg"))); // NOI18N
-
-        areaInfoAuto.setColumns(20);
-        areaInfoAuto.setRows(5);
-        jScrollPane1.setViewportView(areaInfoAuto);
+        areaInfoAvion.setColumns(20);
+        areaInfoAvion.setRows(5);
+        jScrollPane1.setViewportView(areaInfoAvion);
 
         btnRegresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnRegresar.setText("REGRESAR");
@@ -60,10 +57,6 @@ public class miAutomovil extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(34, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -77,9 +70,7 @@ public class miAutomovil extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1)
-                .addGap(29, 29, 29)
+                .addGap(156, 156, 156)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(btnRegresar)
@@ -128,13 +119,12 @@ public class miAutomovil extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new miAutomovil().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new miAvion().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea areaInfoAuto;
+    private javax.swing.JTextArea areaInfoAvion;
     private javax.swing.JButton btnRegresar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
