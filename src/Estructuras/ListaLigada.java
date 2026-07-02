@@ -89,6 +89,91 @@ public class ListaLigada<T> {
         }
     }
 
+    //metodo que agrega nodos en ciertas posiciones
+    public boolean agregaIndice(T item, int index) {
+        //crear el nuevo nodo a insertar
+        Nodo<T> newNode = new Nodo<T>(item);
+        //crear nodos que sirvan de apuntadores para enlazar 
+        //el nuevo nodo con los anteriores
+        Nodo<T> curr = getFront();
+        Nodo<T> temp;
+        ///validar si la LL esta vacia
+         if (isEmpty()) {
+            agregaFin(item);
+            return true;
+        } else {
+            //verificar si no se quiere insertar fuera de las dimensiones de la LL
+            if (index < 0 || (index > longitd())) {
+                return false;
+            } else {
+                //validar si se quiere insertar en el indice 0
+                if (index == 0) {
+                    agregaInicio(item);
+                    return true;
+                } else {
+                    //recorrer la LL hasta una posicion antes del indice que se quiere insertar
+                    for (int i = 0; i < index - 1; i++) {
+                        curr = curr.next;
+
+                    }
+                    //disponer el otro apuntador para no perder y poder enlazar 
+                    //con el nodo que se desplaza
+                    temp = curr.next;
+                    //realizar el enlazamiento del nodo anterior al
+                    //que se va a insertar con el nuevo nodo
+                    curr.next = newNode;
+                    //enlazar el nuevo nodo con el que fue desplazado
+                    newNode.next = temp;
+                    return true;
+                }
+            }
+        }
+
+    }
+
+    public T EliiminarIndice(int index) {
+        //crear el nodo que sirve como apuntador para referenciar
+        //al nodo que esta antes de aquel que se quiere eliminar
+        Nodo<T> curr = getFront();
+        //crear una variable temporal que almacenara el valor del nodo
+        //que se eliminara
+        T temp;
+        //validar si se quiere eliminar sobre lista vacia
+        if (isEmpty()) {
+            return (T) new String("ERROR");
+
+        } else {
+            if ((index < 0) || (index > longitd())) {
+                return (T) new String("error");
+
+            } else {
+                if (index == 0) {
+                    return (T) elimminaInicio();
+                } else {
+                    //validar si se esta eliminando el nodo del final
+                    if (index == (longitd() - 1)) {
+                        return (T) eliminaFin();
+
+                    } else {
+                        //recorrrer la lista hasta llegar a un nodo anterior 
+                        //al que se requiere eliminar 
+                        for (int i = 0; i < index - 1; i++) {
+                            curr = curr.next;
+
+                        }
+                        temp = curr.next.value;
+                        //eliminar el nodo cambiando el enlace del nodo
+                        //anterior donde se quedo al nodo siguiente del que 
+                        //se va a eliminar
+                        curr.next = curr.next.next;
+                        return temp;
+                    }
+                }
+            }
+        }
+
+    }
+
     //metodo toString
     public String toString() {
         //verificar si la LL esta vacia
@@ -154,5 +239,6 @@ public class ListaLigada<T> {
         }
 
     }
+   
 
 }

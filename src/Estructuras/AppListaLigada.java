@@ -25,6 +25,8 @@ public class AppListaLigada {
         System.out.println("Nodo al final: \n" + miLista.toString());
         miLista.agregaFin(5);
         System.out.println("Nodo al final: \n"+miLista.toString());
+        miLista.agregaIndice(5, 4);
+        System.out.println("Nodo en indice:\n "+miLista.toString());
         
         //eliminar nodos en la LL
         System.out.println("Se elimino el nodo: "+miLista.elimminaInicio()+"\nnueva lista: \n"+miLista.toString());
