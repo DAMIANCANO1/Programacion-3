@@ -31,6 +31,7 @@ public class AppListaLigada {
         //eliminar nodos en la LL
         System.out.println("Se elimino el nodo: "+miLista.elimminaInicio()+"\nnueva lista: \n"+miLista.toString());
         System.out.println("Se elimino el nodo: "+miLista.eliminaFin()+"\nnueva lista: \n"+miLista.toString());
+        System.out.println("Se elimino el nodo:\n "+miLista.EliiminarIndice(1)+"\n nueva lista:\n"+miLista.toString());
 
     }
 
