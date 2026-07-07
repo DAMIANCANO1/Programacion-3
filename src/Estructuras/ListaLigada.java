@@ -19,7 +19,7 @@ public class ListaLigada<T> {
     }
 
     // metodo contructor parametrizado
-    public void ListaLigada(Nodo<T> front2) {
+    public ListaLigada(Nodo<T> front2) {
         this.front = front2;
     }
 
@@ -174,6 +174,31 @@ public class ListaLigada<T> {
 
     }
 
+    public boolean swap(int index1, int index2) {
+        if (index1 == index2) {
+            return true;
+        }
+        int longitudActual = longitd();
+        if (index1 < 0 || index1 >= longitudActual || index2 < 0 || index2 >= longitudActual) {
+            return false; 
+        }
+        Nodo<T> nodo1 = getFront();
+        Nodo<T> nodo2 = getFront();
+
+        for (int i = 0; i < index1; i++) {
+            nodo1 = nodo1.next;
+        }
+
+        for (int i = 0; i < index2; i++) {
+            nodo2 = nodo2.next;
+        }
+        T temp = nodo1.value;
+        nodo1.value = nodo2.value;
+        nodo2.value = temp;
+
+        return true;
+    }
+
     //metodo toString
     public String toString() {
         //verificar si la LL esta vacia
@@ -239,6 +264,5 @@ public class ListaLigada<T> {
         }
 
     }
-   
 
 }
