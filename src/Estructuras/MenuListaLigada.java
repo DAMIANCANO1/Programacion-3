@@ -23,11 +23,15 @@ public class MenuListaLigada {
                 //caso 1 listas simples.
                 case 1:
                     MenuListaSimple();
-
                     break;
 
                 //caso 2 lista con objetos     
                 case 2:
+                    boolean band = true;
+                    while (band == true) {     
+                        String op; 
+                        
+                    }
                     break;
 
                 //caso 0 para salir del menu     
@@ -45,9 +49,10 @@ public class MenuListaLigada {
     }
 
     public static void MenuListaSimple() {
-        ListaLigada<String> lista = new ListaLigada<String>();
-        ListaLigada<Integer> listaInt = new ListaLigada<Integer>();
-        ListaLigada<Double> listaDou = new ListaLigada<Double>();
+        ListaLigada<String> lista = new ListaLigada<>();
+        ListaLigada<Integer> listaInt = new ListaLigada<>();
+        ListaLigada<Double> listaDou = new ListaLigada<>();
+
         boolean BanderaMenuSimple = true;
         while (BanderaMenuSimple == true) {
 
@@ -97,20 +102,116 @@ public class MenuListaLigada {
 
                             case "4":
                                 System.out.println("Mostrar");
-                                JOptionPane.showMessageDialog(null, "Lista actual: "+lista.toString());
+                                JOptionPane.showMessageDialog(null, "Lista actual: " + lista.toString());
                                 break;
-                                
+
                             case "0":
                                 bandera1 = false;
                                 break;
 
+                            default:
+                                JOptionPane.showMessageDialog(null, "OPCION NO VALIDA");
+                                break;
                         }
-
+                        break;
                     }
                 case 2:
+                    System.out.println("LISTA SIMPLE INTEGER");
+                    boolean bandera2 = true;
+                    while (bandera2 == true) {
+                        String op = (JOptionPane.showInputDialog(null, "Ingrese la opcion a realizar"
+                                + "\n 1. Insertar"
+                                + "\n 2. Cambiar"
+                                + "\n 3. Eliminar"
+                                + "\n 4. Mostrar"
+                                + "\n 0. Atras"));
+                        switch (op) {
+                            case "1":
+                                System.out.println("insertar");
+                                int valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa el valor (int)"));
+                                int ind = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa el indice"));
+                                listaInt.agregaIndice(valor, ind);
+                                break;
+
+                            case "2":
+                                System.out.println("swap");
+                                int i1 = Integer.parseInt(JOptionPane.showInputDialog("Primer índice:"));
+                                int i2 = Integer.parseInt(JOptionPane.showInputDialog("Segundo índice:"));
+                                listaInt.swap(i1, i2);
+                                JOptionPane.showMessageDialog(null, "Lista después del swap:\n" + lista.toString());
+                                break;
+
+                            case "3":
+                                System.out.println("eliminar");
+                                int indInt = Integer.parseInt(JOptionPane.showInputDialog("Índice a eliminar:"));
+                                int eliminado = listaInt.EliiminarIndice(indInt);
+                                JOptionPane.showMessageDialog(null, "Eliminado: " + eliminado);
+                                break;
+
+                            case "4":
+                                System.out.println("Mostrar");
+                                JOptionPane.showMessageDialog(null, "Lista actual: " + listaInt.toString());
+                                break;
+
+                            case "0":
+                                bandera2 = false;
+                                break;
+
+                            default:
+                                JOptionPane.showMessageDialog(null, "OPCION NO VALIDA");
+                                break;
+                        }
+                    }
+
                     break;
 
                 case 3:
+                    System.out.println("LISTA SIMPLE DOUBLE");
+                    boolean bandera3 = true;
+                    while (bandera3 == true) {
+                        String op = (JOptionPane.showInputDialog(null, "Ingrese la opcion a realizar"
+                                + "\n 1. Insertar"
+                                + "\n 2. Cambiar"
+                                + "\n 3. Eliminar"
+                                + "\n 4. Mostrar"
+                                + "\n 0. Atras"));
+                        switch (op) {
+                            case "1":
+                                System.out.println("insertar");
+                                double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingresa el valor (int)"));
+                                int ind = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa el indice"));
+                                listaDou.agregaIndice(valor, ind);
+                                break;
+
+                            case "2":
+                                System.out.println("swap");
+                                int i1 = Integer.parseInt(JOptionPane.showInputDialog("Primer índice:"));
+                                int i2 = Integer.parseInt(JOptionPane.showInputDialog("Segundo índice:"));
+                                listaDou.swap(i1, i2);
+                                JOptionPane.showMessageDialog(null, "Lista después del swap:\n" + lista.toString());
+                                break;
+
+                            case "3":
+                                System.out.println("eliminar");
+                                int indInt = Integer.parseInt(JOptionPane.showInputDialog("Índice a eliminar:"));
+                                double eliminado = listaDou.EliiminarIndice(indInt);
+                                JOptionPane.showMessageDialog(null, "Eliminado: " + eliminado);
+                                break;
+
+                            case "4":
+                                System.out.println("Mostrar");
+                                JOptionPane.showMessageDialog(null, "Lista actual: " + listaDou.toString());
+                                break;
+
+                            case "0":
+                                bandera3 = false;
+                                break;
+
+                            default:
+                                JOptionPane.showMessageDialog(null, "OPCION NO VALIDA");
+                                break;
+                        }
+                    }
                     break;
                 case 0:
                     BanderaMenuSimple = false;
@@ -121,6 +222,33 @@ public class MenuListaLigada {
                     break;
 
             }
+        }
+    }
+    
+    public static void MenuObjetos() {
+        
+        boolean band = true;
+        while (band == true) {
+            String op = (JOptionPane.showInputDialog(null, "Puede elegir un objeto"
+                    + "\n 1. AUTOMOVIL"
+                    + "\n 2. AVION    "
+                    + "\n 3. BARCO    "
+                    + "\n 4. TREN     "
+                    + "\n 0. atras       "));
+
+            switch (op) {
+                case "1":
+                    //AUTOMOVIL
+                    String marca = JOptionPane.showInputDialog(null, "Ingrese la marca del automovil");
+                    String color = JOptionPane.showInputDialog(null, "Ingrese el color del automovil");
+                    String tipo = JOptionPane.showInputDialog(null, "Ingrese el tipo de automovil");
+                    int modelo = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el modelo del automovil"));
+                    double distancia = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese la distancia"));
+                    double velocidad = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese la velocidad"));
+                    Automovil auto = new Automovil(marca, color, tipo, modelo, distancia, velocidad);
+                    break;
+            }
+
         }
     }
 
