@@ -224,9 +224,17 @@ public class MenuListaLigada {
             }
         }
     }
-    
+  
     public static void MenuObjetos() {
-        
+        Barco barco = new Barco();
+        Avion avion = new Avion();
+        Tren tren = new Tren();
+
+        ListaLigada<Automovil> listaAutos = new ListaLigada<>();
+        ListaLigada<Avion> listaAviones = new ListaLigada<>();
+        ListaLigada<Barco> listaBarcos = new ListaLigada<>();
+        ListaLigada<Tren> listaTrenes = new ListaLigada<>();
+
         boolean band = true;
         while (band == true) {
             String op = (JOptionPane.showInputDialog(null, "Puede elegir un objeto"
@@ -239,13 +247,51 @@ public class MenuListaLigada {
             switch (op) {
                 case "1":
                     //AUTOMOVIL
-                    String marca = JOptionPane.showInputDialog(null, "Ingrese la marca del automovil");
-                    String color = JOptionPane.showInputDialog(null, "Ingrese el color del automovil");
-                    String tipo = JOptionPane.showInputDialog(null, "Ingrese el tipo de automovil");
-                    int modelo = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el modelo del automovil"));
-                    double distancia = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese la distancia"));
-                    double velocidad = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese la velocidad"));
-                    Automovil auto = new Automovil(marca, color, tipo, modelo, distancia, velocidad);
+                    boolean band4 = true;
+                    while (band4 == true) {   
+                        String opc = (JOptionPane.showInputDialog(null, "Ingrese la opcion a realizar"
+                                + "\n 1. Insertar"
+                                + "\n 2. Cambiar"
+                                + "\n 3. Eliminar"
+                                + "\n 4. Mostrar"
+                                + "\n 0. Atras"));
+
+                        switch (opc) {
+                            case "1":
+                                System.out.println("Insertar");
+                                String marca = JOptionPane.showInputDialog(null, "Ingrese la marca del automovil");
+                                String color = JOptionPane.showInputDialog(null, "Ingrese el color del automovil");
+                                String tipo = JOptionPane.showInputDialog(null, "Ingrese el tipo de automovil");
+                                int modelo = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el modelo del automovil"));
+                                double distancia = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese la distancia"));
+                                double velocidad = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese la velocidad"));
+                                Automovil coche = new Automovil(marca, color, modelo, tipo, velocidad, distancia);
+                                listaAutos.agregaInicio(coche);
+                                break;
+                                
+                            case "2":
+                                System.out.println("Swap");
+                                int i1 = Integer.parseInt(JOptionPane.showInputDialog("Primer índice:"));
+                                int i2 = Integer.parseInt(JOptionPane.showInputDialog("Segundo índice:"));
+                                listaAutos.swap(i1, i2);
+                                JOptionPane.showMessageDialog(null, "Lista después del swap:\n" + listaAutos.toString());
+                                break;
+                                
+                            case "3":
+                                System.out.println("Eliminar");
+                                int indInt = Integer.parseInt(JOptionPane.showInputDialog("Índice a eliminar:"));
+                                listaAutos.EliiminarIndice(indInt);
+                                JOptionPane.showMessageDialog(null, "Eliminado: " + indInt);
+                                break;
+
+                            case "4":
+                                System.out.println("Mostrar");
+                                JOptionPane.showMessageDialog(null,"LISTA ACTUAL \n"+ listaAutos.toString());
+
+                        }
+
+                    }
+
                     break;
             }
 
