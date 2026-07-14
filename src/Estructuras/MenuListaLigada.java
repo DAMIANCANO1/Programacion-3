@@ -27,11 +27,7 @@ public class MenuListaLigada {
 
                 //caso 2 lista con objetos     
                 case 2:
-                    boolean band = true;
-                    while (band == true) {     
-                        String op; 
-                        
-                    }
+                    MenuObjetos();
                     break;
 
                 //caso 0 para salir del menu     
@@ -115,6 +111,7 @@ public class MenuListaLigada {
                         }
                         break;
                     }
+                    break;
                 case 2:
                     System.out.println("LISTA SIMPLE INTEGER");
                     boolean bandera2 = true;
@@ -138,7 +135,7 @@ public class MenuListaLigada {
                                 int i1 = Integer.parseInt(JOptionPane.showInputDialog("Primer índice:"));
                                 int i2 = Integer.parseInt(JOptionPane.showInputDialog("Segundo índice:"));
                                 listaInt.swap(i1, i2);
-                                JOptionPane.showMessageDialog(null, "Lista después del swap:\n" + lista.toString());
+                                JOptionPane.showMessageDialog(null, "Lista después del swap:\n" + listaInt.toString());
                                 break;
 
                             case "3":
@@ -178,7 +175,7 @@ public class MenuListaLigada {
                         switch (op) {
                             case "1":
                                 System.out.println("insertar");
-                                double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingresa el valor (int)"));
+                                double valor = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingresa el valor (double)"));
                                 int ind = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa el indice"));
                                 listaDou.agregaIndice(valor, ind);
                                 break;
@@ -188,7 +185,7 @@ public class MenuListaLigada {
                                 int i1 = Integer.parseInt(JOptionPane.showInputDialog("Primer índice:"));
                                 int i2 = Integer.parseInt(JOptionPane.showInputDialog("Segundo índice:"));
                                 listaDou.swap(i1, i2);
-                                JOptionPane.showMessageDialog(null, "Lista después del swap:\n" + lista.toString());
+                                JOptionPane.showMessageDialog(null, "Lista después del swap:\n" + listaDou.toString());
                                 break;
 
                             case "3":
@@ -224,11 +221,8 @@ public class MenuListaLigada {
             }
         }
     }
-  
+
     public static void MenuObjetos() {
-        Barco barco = new Barco();
-        Avion avion = new Avion();
-        Tren tren = new Tren();
 
         ListaLigada<Automovil> listaAutos = new ListaLigada<>();
         ListaLigada<Avion> listaAviones = new ListaLigada<>();
@@ -244,11 +238,15 @@ public class MenuListaLigada {
                     + "\n 4. TREN     "
                     + "\n 0. atras       "));
 
+            if (op == null) {
+                break;
+            }
+
             switch (op) {
                 case "1":
                     //AUTOMOVIL
                     boolean band4 = true;
-                    while (band4 == true) {   
+                    while (band4 == true) {
                         String opc = (JOptionPane.showInputDialog(null, "Ingrese la opcion a realizar"
                                 + "\n 1. Insertar"
                                 + "\n 2. Cambiar"
@@ -268,7 +266,7 @@ public class MenuListaLigada {
                                 Automovil coche = new Automovil(marca, color, modelo, tipo, velocidad, distancia);
                                 listaAutos.agregaInicio(coche);
                                 break;
-                                
+
                             case "2":
                                 System.out.println("Swap");
                                 int i1 = Integer.parseInt(JOptionPane.showInputDialog("Primer índice:"));
@@ -276,7 +274,7 @@ public class MenuListaLigada {
                                 listaAutos.swap(i1, i2);
                                 JOptionPane.showMessageDialog(null, "Lista después del swap:\n" + listaAutos.toString());
                                 break;
-                                
+
                             case "3":
                                 System.out.println("Eliminar");
                                 int indInt = Integer.parseInt(JOptionPane.showInputDialog("Índice a eliminar:"));
@@ -286,13 +284,207 @@ public class MenuListaLigada {
 
                             case "4":
                                 System.out.println("Mostrar");
-                                JOptionPane.showMessageDialog(null,"LISTA ACTUAL \n"+ listaAutos.toString());
+                                JOptionPane.showMessageDialog(null, "LISTA ACTUAL \n" + listaAutos.toString());
+                                break;
+
+                            case "0":
+                                band4 = false;
+                                break;
+
+                            default:
+                                JOptionPane.showMessageDialog(null, "Opcion no valida");
+                                break;
 
                         }
 
                     }
 
                     break;
+
+                case "2":
+                    //AVION
+                    boolean band5 = true;
+                    while (band5 == true) {
+                        String opc = (JOptionPane.showInputDialog(null, "Ingrese la opcion a realizar"
+                                + "\n 1. Insertar"
+                                + "\n 2. Cambiar"
+                                + "\n 3. Eliminar"
+                                + "\n 4. Mostrar"
+                                + "\n 0. Atras"));
+
+                        if (opc == null) {
+                            band5 = false;
+                            break;
+                        }
+
+                        switch (opc) {
+                            case "1":
+                                System.out.println("Insertar");
+                                String modeloAV = JOptionPane.showInputDialog(null, "Ingrese el modelo del avion");
+                                String matriculaAV = JOptionPane.showInputDialog(null, "Ingrese la matricula del avion");
+                                String colorAV = JOptionPane.showInputDialog(null, "Ingrese el color del avion");
+                                double distancia = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese la distancia"));
+                                double velocidad = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese la velocidad"));
+                                Avion av = new Avion(modeloAV, matriculaAV, colorAV, velocidad, distancia);
+                                listaAviones.agregaInicio(av);
+                                break;
+
+                            case "2":
+                                System.out.println("Swap");
+                                int i1 = Integer.parseInt(JOptionPane.showInputDialog("Primer índice:"));
+                                int i2 = Integer.parseInt(JOptionPane.showInputDialog("Segundo índice:"));
+                                listaAviones.swap(i1, i2);
+                                JOptionPane.showMessageDialog(null, "Lista después del swap:\n" + listaAviones.toString());
+                                break;
+
+                            case "3":
+                                System.out.println("Eliminar");
+                                int indInt = Integer.parseInt(JOptionPane.showInputDialog("Índice a eliminar:"));
+                                listaAviones.EliiminarIndice(indInt);
+                                JOptionPane.showMessageDialog(null, "Eliminado: " + indInt);
+                                break;
+
+                            case "4":
+                                System.out.println("Mostrar");
+                                JOptionPane.showMessageDialog(null, "LISTA ACTUAL \n" + listaAviones.toString());
+                                break;
+
+                            case "0":
+                                band5 = false;
+                                break;
+
+                            default:
+                                JOptionPane.showMessageDialog(null, "Opcion no valida");
+                                break;
+
+                        }
+                    }
+                    break;
+                case "3":
+                    //BARCO 
+                    boolean band6 = true;
+                    while (band6 == true) {
+                        String opc = (JOptionPane.showInputDialog(null, "Ingrese la opcion a realizar"
+                                + "\n 1. Insertar"
+                                + "\n 2. Cambiar"
+                                + "\n 3. Eliminar"
+                                + "\n 4. Mostrar"
+                                + "\n 0. Atras"));
+
+                        if (opc == null) {
+                            band6 = false;
+                            break;
+                        }
+
+                        switch (opc) {
+                            case "1":
+                                System.out.println("Insertar");
+                                String NombreB = JOptionPane.showInputDialog(null, "Ingrese el nombre del barco");
+                                String idcapitanB = JOptionPane.showInputDialog(null, "Ingrese el id de capitan");
+                                String colorB = JOptionPane.showInputDialog(null, "Ingrese el color del barco");
+                                double distancia = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese la distancia"));
+                                double velocidad = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese la velocidad"));
+                                Barco bar = new Barco(NombreB, idcapitanB, colorB, distancia, velocidad);
+                                listaBarcos.agregaInicio(bar);
+                                break;
+
+                            case "2":
+                                System.out.println("Swap");
+                                int i1 = Integer.parseInt(JOptionPane.showInputDialog("Primer índice:"));
+                                int i2 = Integer.parseInt(JOptionPane.showInputDialog("Segundo índice:"));
+                                listaBarcos.swap(i1, i2);
+                                JOptionPane.showMessageDialog(null, "Lista después del swap:\n" + listaBarcos.toString());
+                                break;
+
+                            case "3":
+                                System.out.println("Eliminar");
+                                int indInt = Integer.parseInt(JOptionPane.showInputDialog("Índice a eliminar:"));
+                                listaBarcos.EliiminarIndice(indInt);
+                                JOptionPane.showMessageDialog(null, "Eliminado: " + indInt);
+                                break;
+
+                            case "4":
+                                System.out.println("Mostrar");
+                                JOptionPane.showMessageDialog(null, "LISTA ACTUAL \n" + listaBarcos.toString());
+                                break;
+
+                            case "0":
+                                band6 = false;
+                                break;
+
+                            default:
+                                JOptionPane.showMessageDialog(null, "Opcion no valida");
+                                break;
+
+                        }
+                    }
+                    break;
+                case "4":
+                    //TREN
+                    boolean band7 = true;
+                    while (band7 == true) {
+                        String opc = (JOptionPane.showInputDialog(null, "Ingrese la opcion a realizar"
+                                + "\n 1. Insertar"
+                                + "\n 2. Cambiar"
+                                + "\n 3. Eliminar"
+                                + "\n 4. Mostrar"
+                                + "\n 0. Atras"));
+
+                        if (opc == null) {
+                            band7 = false;
+                            break;
+                        }
+
+                        switch (opc) {
+                            case "1":
+                                System.out.println("Insertar");
+                                String NombreT = JOptionPane.showInputDialog(null, "Ingrese el nombre del tren");
+                                String estacion = JOptionPane.showInputDialog(null, "Ingrese la estacion del tren");
+                                String colorB = JOptionPane.showInputDialog(null, "Ingrese el color del tren");
+                                double distancia = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese la distancia"));
+                                double velocidad = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese la velocidad"));
+                                Tren trenecito = new Tren(NombreT, estacion, colorB, distancia, velocidad);
+                                listaTrenes.agregaInicio(trenecito);
+                                break;
+
+                            case "2":
+                                System.out.println("Swap");
+                                int i1 = Integer.parseInt(JOptionPane.showInputDialog("Primer índice:"));
+                                int i2 = Integer.parseInt(JOptionPane.showInputDialog("Segundo índice:"));
+                                listaTrenes.swap(i1, i2);
+                                JOptionPane.showMessageDialog(null, "Lista después del swap:\n" + listaTrenes.toString());
+                                break;
+
+                            case "3":
+                                System.out.println("Eliminar");
+                                int indInt = Integer.parseInt(JOptionPane.showInputDialog("Índice a eliminar:"));
+                                listaTrenes.EliiminarIndice(indInt);
+                                JOptionPane.showMessageDialog(null, "Eliminado: " + indInt);
+                                break;
+
+                            case "4":
+                                System.out.println("Mostrar");
+                                JOptionPane.showMessageDialog(null, "LISTA ACTUAL \n" + listaTrenes.toString());
+                                break;
+
+                            case "0":
+                                band7 = false;
+                                break;
+
+                            default:
+                                JOptionPane.showMessageDialog(null, "Opcion no valida");
+                                break;
+
+                        }
+                    }
+                    break;
+                case "0":
+                    band = false;
+                    break;
+
+                default:
+                    JOptionPane.showMessageDialog(null, "Opcion no valida");
+
             }
 
         }
