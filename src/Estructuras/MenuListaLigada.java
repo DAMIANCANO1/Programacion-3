@@ -61,6 +61,7 @@ public class MenuListaLigada {
 
             switch (opcionS) {
                 //lista simple tipo String
+                
                 case 1:
                     System.out.println("LISTA SIMPLE STRING");
                     boolean bandera1 = true;
@@ -109,7 +110,6 @@ public class MenuListaLigada {
                                 JOptionPane.showMessageDialog(null, "OPCION NO VALIDA");
                                 break;
                         }
-                        break;
                     }
                     break;
                 case 2:
